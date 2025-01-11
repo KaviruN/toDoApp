@@ -1,0 +1,68 @@
+### Register a new user
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username": "test1",
+    "password": "test1",
+    "email": "test1@example.com"
+}
+
+### Obtain an authentication token
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "test1",
+    "password": "test1"
+}
+
+
+### get all todo
+GET  http://127.0.0.1:8000/api/todo/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NjA0Nzk1LCJpYXQiOjE3MzY2MDQ0OTUsImp0aSI6IjNiYmU4OTJmNjgyNjQ4ZDM4NDYyZjBjY2U1ZmQ2N2M0IiwidXNlcl9pZCI6Mn0.B1e0m96KEzmqTDZUzWbWIFmR3IHLj6ue4VcKsPUtN0E
+
+
+
+
+### create a todo
+POST  http://127.0.0.1:8000/api/todo/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NDMyODMzLCJpYXQiOjE3MzYzNDY0MzMsImp0aSI6IjYzM2M3MDhkOGNiYzQ2YzA5NWRlMmY4Njk5MDNkMjRhIiwidXNlcl9pZCI6Mn0.BpWTZuXDPpTFgU9oqxCj6I8t-oeW1nQMc4GSqQ_6rEA
+
+{
+    "title": "Thsi is a test tosddo",
+    "completed": false
+}
+
+### update a todo
+PATCH http://127.0.0.1:8000/api/todo/4/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NDMyODMzLCJpYXQiOjE3MzYzNDY0MzMsImp0aSI6IjYzM2M3MDhkOGNiYzQ2YzA5NWRlMmY4Njk5MDNkMjRhIiwidXNlcl9pZCI6Mn0.BpWTZuXDPpTFgU9oqxCj6I8t-oeW1nQMc4GSqQ_6rEA
+
+{
+    "title": "Thsi is a test in updating",
+    "completed": true
+}
+
+
+### delete a todo
+DELETE HTTP/1.1 http://127.0.0.1:8000/api/todo/4/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NDMyODMzLCJpYXQiOjE3MzYzNDY0MzMsImp0aSI6IjYzM2M3MDhkOGNiYzQ2YzA5NWRlMmY4Njk5MDNkMjRhIiwidXNlcl9pZCI6Mn0.BpWTZuXDPpTFgU9oqxCj6I8t-oeW1nQMc4GSqQ_6rEA
+
+
+###
+POST http://127.0.0.1:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjQzMTE4NSwiaWF0IjoxNzM2NDMxMTI1LCJqdGkiOiI0NWFkYmFiZWE3MTk0ZTFlYTg1ODZhZTU5NjQxNDRhNSIsInVzZXJfaWQiOjJ9.OLrA_VLw12YYJxcGflNo-BKFu2WFtAYgkXzC8fTbbA4"
+
+}  
+  
+# yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNjQzMTE4NSwiaWF0IjoxNzM2NDMxMTI1LCJqdGkiOiI0NWFkYmFiZWE3MTk0ZTFlYTg1ODZhZTU5NjQxNDRhNSIsInVzZXJfaWQiOjJ9.OLrA_VLw12YYJxcGflNo-BKFu2WFtAYgkXzC8fTbbA4
+
+
+

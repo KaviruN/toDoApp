@@ -1,0 +1,40 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;  
+}
+.home-container {
+  text-align: center;
+
+}
+.home-container h1{
+  margin-top: 2em;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(5, 29, 135);
+  padding: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: rgba(255, 255, 255, 0.721);
+}

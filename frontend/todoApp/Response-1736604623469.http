@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Sat, 11 Jan 2025 14:09:27 GMT
+Server: WSGIServer/0.2 CPython/3.12.3
+Content-Type: application/json
+Vary: Accept, origin
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 177
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
+[{"id":1,"user":2,"title":"asas","completed":false},{"id":2,"user":2,"title":"sdknadadef","completed":false},{"id":5,"user":2,"title":"Thsi is a test tosddo","completed":false}]
