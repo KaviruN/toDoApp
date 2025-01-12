@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { userRegister } from '../static/ts/main';
-import loadingGif from '../../public/loading.gif'; // Import the loading GIF
 
 const Register: React.FC = () => {
   const [registerSuccess, setRegisterSuccess] = useState<boolean | null>(null);
@@ -80,9 +79,11 @@ const Register: React.FC = () => {
             >
               {isLoading ? 'Loading...' : 'Register'}
             </button>
-       
+
             <a href="/login">Login</a>
-            {isLoading && <img src={loadingGif} alt="Loading" />}
+            <div className="todo-spiner">
+              {isLoading && <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />}
+            </div>
           </div>
         </form>
       </div>

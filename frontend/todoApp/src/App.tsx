@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Register from "./pages/Register";
-import Todo from "./static/ts/Todo";
+import Todo from "./pages/Todo";
 import PrivateRoute from "./utils/PrivetRoute";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="login/" element={<Login />} />
         <Route path='register/' element={<Register />} />
         <Route path='todo/' element={
           <PrivateRoute>

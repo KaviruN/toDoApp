@@ -1,6 +1,6 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-import { data } from "react-router-dom";
+// import { data } from "react-router-dom";
 
 
 
@@ -22,6 +22,7 @@ function storeRefreshToken(token: string) {
 function storeAccessToken(token: string) {
   localStorage.setItem('AccessToken', token);
 }
+
 
 
 async function userLogin(username: string, password: string): Promise<boolean> {
@@ -69,7 +70,16 @@ function isTokenValid(token: string): boolean {
   }
 }
 
-// ...existing code...
+
+function getUsername(){
+  const accessToken = localStorage.getItem('AccessToken');
+  if (accessToken) {
+    const decoded: any = jwtDecode(accessToken);
+    return decoded.username;
+  }
+  return null;
+}
+
 
 async function getTodos(): Promise<any>  {
   const refreshToken = localStorage.getItem('RefreshToken');
@@ -237,4 +247,4 @@ async function toComplete(id: number): Promise<any> {
 }
 
 
-export { userLogin, getTodos, logout, userRegister, addTodo, todoDelete, toComplete };
+export { userLogin, getTodos, logout, userRegister, addTodo, todoDelete, toComplete, getUsername };
