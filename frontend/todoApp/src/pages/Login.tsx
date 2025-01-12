@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { userLogin } from "../static/ts/main";
+import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [loginSuccess, setLoginSuccess] = useState<boolean | null>(null);
@@ -93,9 +94,9 @@ const Login: React.FC = () => {
             >
               {isLoading ? "Logging in..." : "Login"}
             </button>
-            <a href="/register" className="text-blue-500 hover:underline">
+            <Link to="/register" className="text-blue-500 hover:underline">
               Register
-            </a>
+            </Link>
           </div>
           <div className="todo-spiner">
             {isLoading && <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />}
