@@ -208,7 +208,7 @@ async function todoDelete(id: number): Promise<any> {
   }
 }
 
-async function toComplete(id: number): Promise<any> {
+async function toComplete(id: number, completed: boolean): Promise<any> {
   const refreshToken = localStorage.getItem('RefreshToken');
   let accessToken = localStorage.getItem('AccessToken');
 
@@ -229,13 +229,24 @@ async function toComplete(id: number): Promise<any> {
   }
 
   try {
-    const response = await api.patch(`/api/todo/${id}/`,{completed: true} ,{
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      withCredentials: true // Ensure cookies are included in the request
-    });
-    return [{'success': 'Todo complite successfully', 'data': response.data}];
+    if(!completed){
+      const response = await api.patch(`/api/todo/${id}/`,{completed: true} ,{
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        withCredentials: true // Ensure cookies are included in the request
+      });
+      return [{'success': 'Todo complite successfully', 'data': response.data}];
+    }
+    if(completed){
+      const response = await api.patch(`/api/todo/${id}/`,{completed: false} ,{
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        withCredentials: true // Ensure cookies are included in the request
+      });
+      return [{'success': 'Todo complite successfully', 'data': response.data}];
+    }
   } catch (error) {
     if (axios.isAxiosError(error) && error.response && (error.response.data.code === 'token_not_valid' || error.response.status === 401)) {
       console.error('Token is not valid or unauthorized:', error);

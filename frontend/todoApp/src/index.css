@@ -41,7 +41,9 @@ img{
   margin-top: 1.5rem;
 }
 
-
+input{
+  color: black;
+}
 
 .login-box {
   background-color: #ffffff;

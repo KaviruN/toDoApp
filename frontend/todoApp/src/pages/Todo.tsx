@@ -79,8 +79,8 @@ const Todo: React.FC = () => {
   }
 
 
-  async function handleComplete(id: number) {
-    const completeResponce = await toComplete(id);
+  async function handleComplete(id: number, completed: boolean) {
+    const completeResponce = await toComplete(id, completed);
     fetchData()
     console.log(completeResponce);
   }
@@ -125,7 +125,7 @@ const Todo: React.FC = () => {
           {isLoading && <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />}
         </div>
         {responce.length > 0 && responce.map((item) => (
-          <li className={`todo-items bg-blue-100 dark:bg-blue-900bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-500 dark:border-blue-700 text-blue-900 dark:text-blue-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-blue-200 dark:hover:bg-blue-800 transform hover:scale-105`} key={item.id} onDoubleClick={() => handleComplete(item.id)}>
+          <li className={`todo-items bg-blue-100 dark:bg-blue-900bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-500 dark:border-blue-700 text-blue-900 dark:text-blue-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-blue-200 dark:hover:bg-blue-800 transform hover:scale-105`} key={item.id} onClick={() => handleComplete(item.id, item.completed)} about="Complete todo">
             <p className={`${item.completed && 'completed'} `} >{item.title}</p>
             <button className="inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110" onClick={() => handleDelete(item.id)}>
               <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" className="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg">
