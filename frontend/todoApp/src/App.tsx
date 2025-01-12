@@ -10,9 +10,9 @@ function App() {
     <BrowserRouter basename="/toDoApp">
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="login/" element={<Login />} />
-        <Route path='register/' element={<Register />} />
-        <Route path='todo/' element={
+        <Route path="/login" element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/todo' element={
           <PrivateRoute>
             <Todo />
           </PrivateRoute>

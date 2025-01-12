@@ -1,5 +1,5 @@
 ### Register a new user
-POST http://127.0.0.1:8000/api/register/
+POST https://to-doapp-d4ff22cb0849.herokuapp.com/api/register/
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### Obtain an authentication token
-POST http://127.0.0.1:8000/api/token/
+POST https://to-doapp-d4ff22cb0849.herokuapp.com/api/token/
 Content-Type: application/json
 
 {
