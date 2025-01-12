@@ -1,0 +1,1 @@
+web: npm run build && gunicorn backend.todoApp.wsgi --log-file -
