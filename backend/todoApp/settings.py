@@ -46,7 +46,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://KaviruN.github.io/toDoApp",  # Your frontend development URL (adjust as needed)
+    "https://KaviruN.github.io",
+    "https://kavirun.github.io/toDoApp",
+  # Your frontend development URL (adjust as needed)
 ]
 
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies) in CORS requests
