@@ -1,3 +1,4 @@
+
 {
   "name": "todo-app",
   "version": "1.0.0",
@@ -10,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "start": "gunicorn backend.todoApp.wsgi --log-file -"
+    "start": "node server.js" 
   },
   "dependencies": {
     "connect-history-api-fallback": "^2.0.0",
