@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000', // Django backend URL
+  baseURL: 'https://to-doapp-d4ff22cb0849.herokuapp.com', // Django backend URL
   withCredentials: true, // Send cookies with requests
 });
 
