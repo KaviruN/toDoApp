@@ -325,3 +325,7 @@ html {
 p {
   font-weight:600;
 }
+
+.msg {
+  margin: .75em;
+}
