@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { userLogin } from "../static/ts/main";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Login: React.FC = () => {
   const [loginSuccess, setLoginSuccess] = useState<boolean | null>(null);
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [countdown, setCountdown] = useState<number>(3);
 
@@ -28,7 +30,7 @@ const Login: React.FC = () => {
     // Redirect after 3 seconds
     setTimeout(() => {
       clearInterval(interval);
-      if (loginResult) window.location.href = '/todo';
+      if (loginResult) navigate('/todo');
       setLoginSuccess(null);
     }, 3000);
   }

@@ -62,7 +62,7 @@ ROOT_URLCONF = 'todoApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'todoApp', 'dist')],  # Adjust the path to your built React files
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,6 +129,10 @@ STATIC_URL = 'static/'
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend', 'todoApp', 'dist'),  # Adjust the path to your built React files
+]
 
 # ...existing code...
 

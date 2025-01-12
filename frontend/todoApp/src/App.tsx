@@ -7,7 +7,7 @@ import PrivateRoute from "./utils/PrivetRoute";
 
 function App() {
   return (
-    <BrowserRouter basename="/toDoApp">
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/login" element={<Login />} />
