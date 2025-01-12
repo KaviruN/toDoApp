@@ -46,7 +46,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5173",  # Your frontend development URL (adjust as needed)
+    "https://KaviruN.github.io/toDoApp",  # Your frontend development URL (adjust as needed)
 ]
 
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies) in CORS requests
@@ -136,14 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REST framework settings
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Require authentication for all views by default
-    ],
-}
+
 
 
 # SimpleJWT settings
@@ -159,3 +152,14 @@ SIMPLE_JWT = {
     'AUTH_COOKIE_SECURE': False,  # Set to True when using HTTPS in production
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Require authentication for all views by default
+    ],
+        'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}
