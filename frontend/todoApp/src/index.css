@@ -115,6 +115,10 @@ a {
   margin-top: .75em;
 }
 
+h1{
+  color: black;
+}
+
 /* From Uiverse.io by andrew-demchenk0 */ 
 .error {
   align-self: flex-end;
