@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "start": "node server.js"
+    "start": "vite preview"
   },
   "dependencies": {
     "connect-history-api-fallback": "^2.0.0",

@@ -1,13 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+const path = require('path');
+const { defineConfig } = require('vite');
+const react = require('@vitejs/plugin-react');
 
-export default defineConfig({
+module.exports = defineConfig({
   plugins: [react()],
-  root: 'frontend/todoApp', // Ensure this matches the location of your index.html
+  root: path.resolve(__dirname, 'frontend/todoApp'), // Ensure this matches the location of your index.html
   build: {
-    outDir: 'dist',
+    outDir: path.resolve(__dirname, 'dist'),
     rollupOptions: {
-      input: 'frontend/todoApp/index.html', // Ensure this matches the location of your index.html
+      input: path.resolve(__dirname, 'frontend/todoApp/index.html'), // Ensure this matches the location of your index.html
     },
   },
 });
