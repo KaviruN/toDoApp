@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 const api = axios.create({
-  baseURL: 'https://aktodoapp-f4d89e2830f9.herokuapp.com', // Django backend URL
+  baseURL: 'https://todo-api.kaviru.me/', // Django backend URL
   withCredentials: true, // Send cookies with requests
 });
 
@@ -27,7 +27,7 @@ function storeAccessToken(token: string) {
 
 async function userLogin(username: string, password: string): Promise<boolean> {
   try {
-    const response = await api.post('/api/token/', { username, password });
+    const response = await api.post('/token/', { username, password });
     const refresh = response.data.refresh;
     const access = response.data.access;
     storeRefreshToken(refresh);
@@ -40,7 +40,7 @@ async function userLogin(username: string, password: string): Promise<boolean> {
 
 async function userRegister(username: string, email:string, password: string): Promise<boolean> {
   try {
-    await api.post('/api/register/', { username, password, email });
+    await api.post('/register/', { username, password, email });
     return true;
   } catch (error) {
     return false;
@@ -50,7 +50,7 @@ async function userRegister(username: string, email:string, password: string): P
 async function getNewAccessToken() {
   const refreshToken = localStorage.getItem('RefreshToken');
   return api
-    .post('/api/token/refresh/', { refresh: refreshToken })
+    .post('/token/refresh/', { refresh: refreshToken })
     .then((response) => {
       const newAccess = response.data.access;
       storeAccessToken(newAccess);
@@ -102,7 +102,7 @@ async function getTodos(): Promise<any>  {
   }
 
   try {
-    const response = await api.get('/api/todo/', {
+    const response = await api.get('/todo/', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -147,7 +147,7 @@ async function addTodo(promt: string): Promise<any> {
   };
 
   try {
-    const response = await api.post('/api/todo/', todoData, {
+    const response = await api.post('/todo/', todoData, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -191,7 +191,7 @@ async function todoDelete(id: number): Promise<any> {
   }
 
   try {
-    const response = await api.delete(`/api/todo/${id}/`, {
+    const response = await api.delete(`/todo/${id}/`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -230,7 +230,7 @@ async function toComplete(id: number, completed: boolean): Promise<any> {
 
   try {
     if(!completed){
-      const response = await api.patch(`/api/todo/${id}/`,{completed: true} ,{
+      const response = await api.patch(`/todo/${id}/`,{completed: true} ,{
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -239,7 +239,7 @@ async function toComplete(id: number, completed: boolean): Promise<any> {
       return [{'success': 'Todo complite successfully', 'data': response.data}];
     }
     if(completed){
-      const response = await api.patch(`/api/todo/${id}/`,{completed: false} ,{
+      const response = await api.patch(`/todo/${id}/`,{completed: false} ,{
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
